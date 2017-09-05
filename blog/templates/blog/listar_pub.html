@@ -1,10 +1,13 @@
-<html>
-  <h1>hola</h1>
-  {% for p in pub %}
-  <div>
-    <p>Publicacion: {{p.fecha_publicacion}}</p>
-     <h1><a href="">{{p.titulo}}</a></h1>
-    <p>{{p.texto|linebreaksbr}}</p>
-  </div>
-  {% endfor %}
-</html>
+{% extends 'blog/base.html' %}
+
+      {% block content %}
+
+        {% for p in pub %}
+        <div class="post">
+          <p>Publicacion: {{p.fecha_publicacion}}</p>
+           <h1><a href="{%url 'postea' pk=p.pk %}">{{p.titulo}}</a></h1>
+          <p>{{p.texto|linebreaksbr}}</p>
+        </div>
+        {% endfor %}
+
+      {% endblock content %}
